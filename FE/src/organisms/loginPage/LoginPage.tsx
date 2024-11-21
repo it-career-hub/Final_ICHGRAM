@@ -15,7 +15,7 @@ export const LoginPage = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentScreenshot((prev) => (prev + 1) % screenshots.length);
-    }, 3000);
+    }, 3500);
 
     return () => clearInterval(interval);
   }, []);
