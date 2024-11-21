@@ -1,0 +1,54 @@
+.recieversList {
+    width: 397px;
+    height: 85vh;
+    border-right: var(--border);
+    padding: 34px 0;
+}
+
+.recieversList h4 {
+  margin-left: 20px;
+}
+
+.recieversList_userBox {
+    display: flex;
+    gap: 7.5px;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .recieversList_userBox:hover {
+    background-color: var( --color-bg-light-grey); /* Светлый серый фон при наведении */
+  }
+  
+  .recieversList_userBox.active {
+    background-color: var(--color-bg-dark-grey); /* Серый фон для активного пользователя */
+  }
+  
+
+.userBox_img {
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    border: var(--border);
+}
+
+.userBox_data {
+    display: flex;
+    flex-direction: column;
+    gap: 6.5px;
+    padding: 2px 0;
+}
+
+.userBox_dataP1 {
+font-size: 14px;
+font-weight: 400;
+line-height: 18px;
+}
+
+.userBox_dataP2 {
+font-size: 12px;
+font-weight: 400;
+line-height: 16px;
+color: var( --color-text-grey);
+}
