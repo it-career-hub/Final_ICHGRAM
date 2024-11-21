@@ -36,6 +36,7 @@
 .allUpdates {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 8px;
   text-align: center;
@@ -45,6 +46,7 @@
 .allUpdates img {
   width: 80px;
   height: auto;
+  margin: 0 auto;
 }
 
 .allUpBig {

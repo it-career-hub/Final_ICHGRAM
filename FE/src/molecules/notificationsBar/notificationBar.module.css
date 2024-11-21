@@ -60,4 +60,26 @@ line-height: 18px;
     flex-direction: column;
     gap: 16px;
     margin-bottom: 16px;
+  }  
+  @media (max-width: 568px){
+  .notificationItem{
+    flex-direction: row;
+    min-width: 50vw;
+    max-height: 30px;
+    font-size: 10px;
+    margin-bottom: 20px;
+    padding: 0px;
   }
+  .avatar{
+    max-width: 30px;
+    max-height: 30px;
+  }
+  .userName{
+    font-size: 0.8rem;
+    max-height: 25px;
+    line-height: normal;
+  }
+  .parsedData{
+    display: none;
+  }
+}

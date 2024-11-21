@@ -6,6 +6,7 @@ import CustomButton from '../../atoms/customButton/CustomButton';
 import CustomInput from '../../atoms/customInput/CustomInput';
 import trouble from '../../assets/trouble_logging _in.svg';
 import { useTranslation } from 'react-i18next';
+import { HiOutlineEye, HiOutlineEyeOff } from 'react-icons/hi';
 
 export const ResetForm = () => {
   const { t } = useTranslation();
@@ -20,8 +21,8 @@ export const ResetForm = () => {
   const [isPasswordReset, setIsPasswordReset] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // состояние для глазика
 
-  // Обработчик изменения значения поля
   const handleInputChange = (field: string, value: string) => {
     setUserObject((prev) => ({
       ...prev,
@@ -29,29 +30,27 @@ export const ResetForm = () => {
     }));
   };
 
-  // Проверка пользователя и отображение формы для смены пароля
   const handleCheckUser = async (e) => {
     e.preventDefault();
-    setError('');  // Сброс ошибки перед новой проверкой
+    setError(''); 
     try {
       const response = await $api.post("/auth/check-user", {
         email: userObject.email,
       });
       if (response.status === 200) {
-        setIsPasswordReset(true); // Показываем инпут для нового пароля
+        setIsPasswordReset(true); 
       } else {
         setError(t('resetForm.userNotFound'));
       }
     } catch (error) {
       console.error("Ошибка при проверке пользователя:", error);
-      setError(t('resetForm.checkError')); // Ошибка при проверке пользователя
+      setError(t('resetForm.checkError'));
     }
   };
   
-  // Сохранение нового пароля
   const handleUpdatePassword = async (e) => {
     e.preventDefault();
-    setError('');  // Сброс ошибки перед отправкой нового пароля
+    setError(''); 
     try {
       const response = await $api.post("/auth/update-password", {
         email: userObject.email,
@@ -86,13 +85,26 @@ export const ResetForm = () => {
         />
 
         {isPasswordReset && (
-          <CustomInput
-            placeholder={t('resetForm.placeholderNewPassword')}
-            value={newPassword}
-            onChange={setNewPassword} // напрямую передаем setNewPassword
-            type="password"
-            style={{ paddingLeft: '8px', backgroundColor: 'var(--color-bg-light-grey)', color: 'var(--color-text-grey)', marginTop: '6px' }}
-          />
+          <div className={s.passwordContainer}>
+            <CustomInput
+              placeholder={t('resetForm.placeholderNewPassword')}
+              value={newPassword}
+              onChange={setNewPassword}
+              type={showPassword ? 'text' : 'password'}
+              style={{
+                paddingLeft: '8px',
+                backgroundColor: 'var(--color-bg-light-grey)',
+                color: 'var(--color-text-grey)',
+                marginTop: '6px',
+              }}
+            />
+            <span
+              className={s.eyeIcon}
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <HiOutlineEyeOff /> : <HiOutlineEye />}
+            </span>
+          </div>
         )}
 
         {error && <p className={s.errorMessage}>{error}</p>}

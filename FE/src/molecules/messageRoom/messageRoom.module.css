@@ -30,7 +30,7 @@
   gap: 17px;
   align-items: center;
   justify-content: center;
-  padding: 55px 0;
+  padding: 40px 0;
   text-align: center;
 }
 
@@ -140,11 +140,13 @@
   position: relative;
 }
 
-.form  textarea {
+.form >textarea {
   border: var(--border);
   border-radius: var( --border-radius-xl);
   padding: 12px 40px 10px 12px;
   color: var(--color-text-grey);
+  min-width: 45vw;
+ 
 }
 
 .form  textarea::placeholder {
@@ -160,3 +162,68 @@ right: 12px;
 border: none;
 background-color: transparent;
 }
+
+
+@media (max-width: 1400px) {
+
+
+.messageRoom {
+  width: 50vw;}
+
+  .recipientInfo {
+    
+    min-height: 50px;}
+
+  .list{ 
+    width: 90%;
+
+
+  }
+
+}
+
+
+
+  @media (max-width: 768px) {
+    .messageRoom {
+      width: 72vw;}
+
+      .form  textarea {
+        min-width: 50vw ;
+       }
+
+  }
+
+  @media (max-width: 568px) {
+
+  .recipientInfo_inside p {
+  display:none;
+    
+  }
+
+  .messageRoom {
+    width: 70vw;}
+
+    .list{
+    flex-direction: column;
+    row-gap: 16px;
+    width: 90%;
+    margin: 0 auto;
+    padding:5px;
+    overflow-y: auto;
+    max-height: 100vh;
+    }
+
+    .recipientInfo {
+      display:none;
+    }
+    .form  textarea {
+     min-width: 45vw ;
+    }
+    .list_item_my {
+      margin-left: 20%;
+    }
+    .list_item_their {
+      margin-right: 20%;
+    }
+  }

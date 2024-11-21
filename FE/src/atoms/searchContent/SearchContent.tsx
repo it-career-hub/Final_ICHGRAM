@@ -6,6 +6,7 @@ import { getAllUsers } from '../../redux/slices/userSlice';
 import CustomInput from "../customInput/CustomInput";
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import noPhoto from "../../assets/noPhoto.png";
 
 function SearchContent() {
     const { t } = useTranslation();
@@ -48,7 +49,7 @@ function SearchContent() {
                         className={s.searchContent_listImage}
                         onClick={() => handleUserClick(user._id)}
                     >
-                        <img src={user.profile_image} alt={user.username} />
+                        <img src={user.profile_image || noPhoto} alt={user.username} />
                         <h6>{user.username}</h6>
                     </div>
                 ))}
