@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"; // импортируем useParam
 
 import { getOtherUserPosts } from "../../redux/slices/postsSlice";
 import { AppDispatch } from "../../redux/store";
-import PostModal from "../postsList2/PostModal";
+import PostModal from "./OtherPostsModal";
 import s from "./postsListOther.module.css";
 
 const PostsListOther: React.FC = () => {

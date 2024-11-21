@@ -489,7 +489,8 @@ border-radius: 50%;
   }
   .modalContent{
     flex-direction: column;
-    height: 80vh;
+    font-size: 12px;
+      height: 90vh;
    left: auto;
   }
   .modalContent_leftside{
