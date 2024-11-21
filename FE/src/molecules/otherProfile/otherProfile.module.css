@@ -2,12 +2,27 @@
     display: flex;
     padding: 30px 0 0 20px;
     gap: 95px;
+    width: 100%;
   }
   
+  .btn{
+    max-width: 100%;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Отступ между иконкой и текстом */
+    line-height: 18px;
+    transition: background-color 0.3s ease;
+  }
+
   .gradient_border {
     position: relative;
-    min-width: 168px;
-    height: 168px;
+    min-width: 172px;
+    height: 172px;
     border-radius: 50%;
   }
   
@@ -28,8 +43,8 @@
   .gradient_border_inner {
     position: relative;
     z-index: 2;
-    width: 100%;
-    height: 100%;
+    width: 164px;
+    height: 164px;
     padding: 4px;
     /* Небольшой внутренний отступ для изображения */
     background-color: #f0f0f0;
@@ -87,3 +102,59 @@
     color: var(--color-text-link);
     cursor: pointer;
   }
+
+  @media (max-width: 1200px) {
+    .otherProfile{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+  }
+  @media (max-width: 765px) {
+    .otherProfile{
+      width: 100vw;
+      padding: 0;
+      gap: 0px;
+      justify-content: center;
+      align-items: center;
+    }
+   .otherProfile_rightside_btnBox{
+    width: 90vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+  .webLink{
+    justify-content: center;
+    align-items: center;
+  }
+  .otherProfile_rightside_btnBox>button{
+    padding: 5px 15px;
+    width: 80%;
+  }
+  .otherProfile_statistic{
+    max-width: 90vw;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  .otherProfile_statisticBio{
+    max-width: 85vw;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+  }
+  .gradient_border_inner {
+    width: 100px;
+    height: 100px;
+  }
+  .gradient_border::before{
+    max-width:67%;
+    max-height: 67%;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+  }
+

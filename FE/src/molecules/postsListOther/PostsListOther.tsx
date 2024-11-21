@@ -31,7 +31,7 @@ const PostsListOther: React.FC = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div>
+    <div className={s.posnlistOther}>
       <div className={s.postList}>
         {posts
           ?.map((post) => (

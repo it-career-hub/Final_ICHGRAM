@@ -108,6 +108,7 @@ function OtherProfile() {
     <div>
       {currentUser ? (
         <div className={s.otherProfile}>
+          
           <span className={s.gradient_border}>
             <span className={s.gradient_border_inner}>
               <img
@@ -116,6 +117,7 @@ function OtherProfile() {
               />
             </span>
           </span>
+         
           <div className={s.otherProfile_rightside}>
             <div className={s.otherProfile_rightside_btnBox}>
               <p>{currentUser.username}</p>
@@ -130,6 +132,7 @@ function OtherProfile() {
                 onClick={isFollowing ? handleUnfollow : handleFollow}
               />
               <CustomButton 
+               className={s.btn}
               text={t('otherProfile.message')} 
               style={{ width: "168.72px" }} 
               onClick={handleMessage} />
