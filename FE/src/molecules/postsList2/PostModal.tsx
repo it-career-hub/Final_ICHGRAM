@@ -121,12 +121,15 @@ const PostModal: React.FC<ModalProps> = ({ post, onClose, onUpdatePosts }) => {
     const handleDeletePost = async () => {
         try {
             await $api.delete(`/post/${post._id}`);
-            onUpdatePosts();
-            onClose();
+            onUpdatePosts(); // Обновляем список постов
+            onClose(); // Закрываем модальное окно поста
+            setShowDeleteConfirmation(false); // Закрываем окно подтверждения
         } catch (error) {
             console.error('Ошибка при удалении поста:', error);
         }
     };
+    
+  
 
     return (
         <div className={s.modalOverlay} onClick={onClose}>
@@ -275,19 +278,22 @@ const PostModal: React.FC<ModalProps> = ({ post, onClose, onUpdatePosts }) => {
 
                     {showDeleteConfirmation && (
                         <div className={s.deleteConfirmation}>
-                            <p>Are you sure you want to delete this post?</p>
-                            <div className={s.delButtons}>
-                                <button className={s.confirmDeleteButton} onClick={handleDeletePost}>
-                                    Yes
-                                </button>
-                                <button
-                                    className={s.cancelDeleteButton}
-                                    onClick={() => setShowDeleteConfirmation(false)}
-                                >
-                                    No
-                                </button>
-                            </div>
+                        <p>Are you sure you want to delete this post?</p>
+                        <div className={s.delButtons}>
+                            <button
+                                className={s.confirmDeleteButton}
+                                onClick={handleDeletePost} // Удаляем пост и закрываем модалку
+                            >
+                                Yes
+                            </button>
+                            <button
+                                className={s.cancelDeleteButton}
+                                onClick={() => setShowDeleteConfirmation(false)} // Закрываем без удаления
+                            >
+                                No
+                            </button>
                         </div>
+                    </div>
                     )}
                     
                     <div className={s.commentsSection}>

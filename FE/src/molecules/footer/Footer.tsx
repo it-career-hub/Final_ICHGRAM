@@ -15,7 +15,7 @@ export const Footer = () => {
                 <Link to={"/create"} >{t('footer.create')}</Link>
             </div>
             <div className={s.footer_bottom}>
-                <p>© 2024 ICHgram</p>
+                <p>Elmira © 2024 ICHgram</p>
             </div>
         </div>
     )
